@@ -1,22 +1,22 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet, ActivityIndicator } from 'react-native';
-import { useQuery } from 'react-query';
-import { fetchImage } from '../../../../services/image';
+import { Image, StyleSheet } from 'react-native';
 
 type PlaceImageTimelineItem = {
   imageSource: string
 }
 
 const PlaceImageTimelineItem = ({ imageSource }: PlaceImageTimelineItem) => {
-  const { data, isLoading } = useQuery(["image", imageSource], () => fetchImage(imageSource));
+  // const { data, isLoading } = useQuery(["image", imageSource], () => fetchImage(imageSource));
 
-  if (isLoading) {
-    return <ActivityIndicator size="small" color="gray" />;
-  }
+  // if (isLoading) {
+  //   return <ActivityIndicator size="small" color="gray" />;
+  // }
 
-  if (!data) {
-    return <Text>Erro ao carregar a imagem.</Text>;
-  }
+  // if (!data) {
+  //   return <Text>Erro ao carregar a imagem.</Text>;
+  // }
+
+  const data = imageSource;
 
   return (
      <Image source={{ uri: data }} style={styles.image} />
